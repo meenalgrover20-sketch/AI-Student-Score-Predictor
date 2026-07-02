@@ -345,3 +345,50 @@ section{
 
 }
 
+/*==========================
+        MOBILE NAVBAR
+==========================*/
+
+@media (max-width:768px){
+
+    .navbar{
+        height:auto;
+        padding:12px 0;
+    }
+
+    .nav-content{
+        flex-direction:column;
+        gap:12px;
+        height:auto;
+    }
+
+    .logo{
+        width:100%;
+        justify-content:center;
+    }
+
+    .logo img{
+        width:42px;
+        height:42px;
+    }
+
+    .logo-text h2{
+        font-size:18px;
+    }
+
+    .logo-text span{
+        font-size:12px;
+    }
+
+    .nav-links{
+        width:100%;
+        justify-content:center;
+        gap:16px;
+        flex-wrap:wrap;
+    }
+
+    .nav-links a{
+        font-size:15px;
+    }
+
+}

@@ -1129,3 +1129,114 @@ flex-direction:column;
     cursor:pointer;
 
 }
+@media (max-width: 768px) {
+
+    .container{
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-content{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left,
+    .hero-right{
+        width: 100%;
+    }
+
+    .hero-left h1{
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .hero-buttons{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-buttons .btn{
+        width: 100%;
+    }
+
+}
+/*=========================
+        MOBILE MENU
+==========================*/
+
+.menu-btn{
+
+    display:none;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:white;
+
+}
+
+@media (max-width:768px){
+
+.nav-content{
+
+    height:auto;
+
+    padding:15px 0;
+
+    flex-wrap:wrap;
+
+}
+
+.logo-text h2{
+
+    font-size:20px;
+
+}
+
+.logo-text span{
+
+    font-size:12px;
+
+}
+
+.menu-btn{
+
+    display:block;
+
+}
+
+.nav-links{
+
+    display:none;
+
+    width:100%;
+
+    flex-direction:column;
+
+    margin-top:18px;
+
+    gap:18px;
+
+    text-align:center;
+
+}
+
+.nav-links.show{
+
+    display:flex;
+
+}
+
+.nav-links a{
+
+    font-size:18px;
+
+    display:block;
+
+    padding:10px;
+
+}
+
+}
