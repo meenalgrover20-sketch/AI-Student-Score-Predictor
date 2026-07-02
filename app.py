@@ -128,7 +128,7 @@ def home():
     conn.close()
 
     return render_template(
-    "index.html",
+    "home.html",
     history=history,
     stats=stats,
     best_grade=best_grade
