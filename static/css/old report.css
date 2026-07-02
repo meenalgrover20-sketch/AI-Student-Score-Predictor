@@ -1,0 +1,931 @@
+/* ==========================================
+            REPORT HERO
+========================================== */
+
+
+
+.report-title{
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+.hero-chip{
+
+    display:inline-block;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#dbeafe;
+
+    font-size:15px;
+
+    margin-bottom:25px;
+
+}
+
+.report-title h1{
+
+    font-size:60px;
+
+    color:#fff;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+.report-title p{
+
+    color:#cbd5e1;
+
+    font-size:20px;
+
+    line-height:34px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:1000px){
+
+.summary-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.summary-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.report-title h1{
+
+    font-size:42px;
+
+}
+
+.report-title p{
+
+    font-size:17px;
+
+}
+
+}
+
+
+
+ /* ==============================
+   Performance Card
+============================== */
+
+
+.performance-card h2{
+
+    color:#fff;
+    margin-bottom:10px;
+
+}
+
+.performance-card p{
+
+    color:#cbd5e1;
+    margin-bottom:20px;
+
+}
+.chart-wrapper{
+
+    width:260px;
+    height:260px;
+    margin:35px auto 20px;
+
+}
+
+#reportChart{
+
+    display:block;
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+.chart-score{
+
+    margin-top:20px;
+
+}
+
+.chart-score h2{
+
+    color:#ffffff;
+    font-size:40px;
+    margin:0;
+
+}
+
+.chart-score span{
+
+    color:#cbd5e1;
+    font-size:18px;
+
+}
+
+
+.chart-score p{
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+}
+
+
+/* ==========================================================
+                REPORT HERO
+========================================================== */
+
+.report-hero{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:70px;
+
+    margin:30px 0 55px;
+
+}
+
+.hero-left{
+
+    flex:1;
+
+}
+
+.report-badge{
+
+    display:inline-flex;
+    align-items:center;
+
+    padding:10px 24px;
+
+    border-radius:40px;
+
+    background:rgba(124,58,237,.12);
+
+    border:1px solid rgba(124,58,237,.35);
+
+    color:#d9cbff;
+
+    font-size:14px;
+
+    margin-bottom:22px;
+
+}
+
+.hero-left h1{
+
+    font-size:62px;
+
+    font-weight:800;
+
+    line-height:1.05;
+
+    color:white;
+
+    margin-bottom:18px;
+
+}
+
+.hero-left h1 span{
+
+    color:#8B5CF6;
+
+}
+
+.hero-left p{
+
+    max-width:620px;
+
+    color:#B8BDD8;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+}
+
+.hero-right{
+
+    width:250px;
+
+}
+
+.date-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(124,58,237,.45);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    text-align:center;
+
+    box-shadow:0 0 30px rgba(124,58,237,.20);
+
+}
+
+.date-card h4{
+
+    color:#d5d2ff;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+}
+
+.date-card h3{
+
+    color:white;
+
+    font-size:26px;
+
+    margin-bottom:8px;
+
+}
+
+.date-card p{
+
+    color:#c6cae8;
+
+}
+
+
+/* ==========================================================
+                SUMMARY CARDS
+========================================================== */
+
+.summary-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:22px;
+
+    margin-bottom:60px;
+
+}
+
+.summary-card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:26px 18px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    text-align:center;
+
+}
+
+.summary-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:4px;
+
+    background:linear-gradient(90deg,#7C3AED,#3B82F6);
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#7C3AED;
+
+    box-shadow:0 20px 45px rgba(124,58,237,.25);
+
+}
+
+.summary-card span{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:58px;
+    height:58px;
+
+    margin:auto;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#7C3AED,#3B82F6);
+
+    font-size:24px;
+
+    margin-bottom:18px;
+
+}
+
+.summary-card h4{
+
+    color:#C9CCE5;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+
+}
+
+.summary-card h2{
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================================
+                PERFORMANCE GRID
+========================================================== */
+
+.performance-grid{
+
+    display:grid;
+
+    grid-template-columns:2.2fr .8fr;
+
+    gap:28px;
+
+    margin-bottom:55px;
+
+}
+
+.performance-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:30px;
+
+}
+
+.performance-card h2{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:8px;
+
+}
+
+.performance-card p{
+
+    text-align:center;
+
+    color:#BFC4DD;
+
+    margin-bottom:22px;
+
+}
+
+#reportChart{
+
+    width:100% !important;
+
+    height:320px !important;
+
+}
+
+
+/* ==========================================================
+                    GRADE CARD
+========================================================== */
+
+.score-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+.progress-circle{
+
+    width:170px;
+
+    height:170px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+    #7C3AED 0%,
+    #3B82F6 78%,
+    rgba(255,255,255,.08) 78%);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.progress-inner{
+
+    width:125px;
+
+    height:125px;
+
+    border-radius:50%;
+
+    background:#23214d;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.progress-inner span{
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.score-card h2{
+
+    color:white;
+
+    margin-top:25px;
+
+}
+
+.score-card p{
+
+    color:#BFC4DD;
+
+    margin:10px 0 18px;
+
+}
+
+.performance-badge{
+
+    display:inline-block;
+
+    padding:12px 24px;
+
+    border-radius:30px;
+
+    background:linear-gradient(90deg,#7C3AED,#3B82F6);
+
+    color:white;
+
+    font-weight:600;
+
+}
+/* ==========================================================
+                AI PERFORMANCE ANALYSIS
+========================================================== */
+
+.analysis-section{
+
+    margin:60px 0;
+
+}
+
+.analysis-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:35px;
+
+}
+
+.analysis-card h2{
+
+    text-align:center;
+
+    color:#fff;
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+.analysis-card .subtitle{
+
+    text-align:center;
+
+    color:#bfc4dd;
+
+    margin-bottom:35px;
+
+    font-size:15px;
+
+}
+
+.analysis-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.analysis-item{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    transition:.35s;
+
+}
+
+.analysis-item:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#7C3AED;
+
+    box-shadow:0 15px 30px rgba(124,58,237,.22);
+
+}
+
+.analysis-item .icon{
+
+    width:58px;
+
+    height:58px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#7C3AED,#3B82F6);
+
+    font-size:24px;
+
+    margin-bottom:18px;
+
+}
+
+.analysis-item h3{
+
+    color:white;
+
+    margin-bottom:10px;
+
+    font-size:20px;
+
+}
+
+.analysis-item p{
+
+    color:#c8cce6;
+
+    line-height:1.7;
+
+}
+
+
+/* ==========================================================
+            STUDENT PERFORMANCE SUMMARY
+========================================================== */
+
+.summary-details-section{
+
+    margin-top:60px;
+
+}
+
+.details-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:35px;
+
+}
+
+.details-card h2{
+
+    text-align:center;
+
+    color:#fff;
+
+    margin-bottom:35px;
+
+    font-size:32px;
+
+}
+
+.details-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.detail-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 24px;
+
+    background:rgba(255,255,255,.04);
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.3s;
+
+}
+
+.detail-item:hover{
+
+    border-color:#7C3AED;
+
+    transform:translateX(5px);
+
+}
+
+.detail-item span{
+
+    color:#c9cde7;
+
+    font-size:16px;
+
+}
+
+.detail-item strong{
+
+    color:#fff;
+
+    font-size:22px;
+
+}
+
+
+/* ==========================================================
+                    BUTTONS
+========================================================== */
+
+.report-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-top:45px;
+
+    flex-wrap:wrap;
+
+}
+
+.report-buttons a,
+
+.report-buttons button{
+
+    border:none;
+
+    text-decoration:none;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.print-btn{
+
+    background:#10B981;
+
+    color:white;
+
+}
+
+.download-btn{
+
+    background:linear-gradient(90deg,#7C3AED,#3B82F6);
+
+    color:white;
+
+}
+
+.home-btn{
+
+    background:#1F2937;
+
+    color:white;
+
+}
+
+.report-buttons a:hover,
+
+.report-buttons button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(124,58,237,.25);
+
+}
+
+
+/* ==========================================================
+                    FOOTER
+========================================================== */
+
+.report-footer{
+
+    text-align:center;
+
+    margin-top:70px;
+
+    padding:30px 0;
+
+    color:#bfc4dd;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.report-footer h3{
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.report-footer p{
+
+    margin:5px 0;
+
+}
+
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.analysis-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.details-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.performance-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-left h1{
+
+font-size:44px;
+
+}
+
+.summary-cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.report-buttons{
+
+flex-direction:column;
+
+}
+
+.report-buttons a,
+
+.report-buttons button{
+
+width:100%;
+
+text-align:center;
+
+}
+
+}

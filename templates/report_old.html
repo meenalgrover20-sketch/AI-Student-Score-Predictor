@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Report</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+
+<body>
+
+<div class="report-container">
+
+   <div class="report-header">
+
+    <h1>📊 AI Student Performance Report</h1>
+
+    <p>Detailed Analysis Generated using Artificial Intelligence</p>
+
+</div>
+
+    <div class="report-grid">
+
+    
+
+        <div class="report-card">
+            <h3>🎯 Predicted Score</h3>
+            <h1 id="reportScore">
+
+{% if result %}
+{{ result.score }}%
+{% else %}
+--%
+{% endif %}
+
+</h1>
+        </div>
+
+        <div class="report-card">
+            <h3>🏆 Grade</h3>
+            <h1 id="reportGrade">
+
+{% if result %}
+{{ result.grade }}
+{% else %}
+--
+{% endif %}
+
+</h1>
+        </div>
+
+        <div class="report-card">
+            <h3>📊 Confidence</h3>
+         <h1 id="reportConfidence">
+
+{% if result %}
+{{ result.confidence }}
+{% else %}
+96%
+{% endif %}
+
+</h1>   
+        </div>
+
+
+
+ <div class="report-card">
+
+    <h3>📈 Performance</h3>
+
+    <h1 id="reportStatus">
+
+        {% if result %}
+
+            {% if result.score >= 90 %}
+                🌟 Excellent
+
+            {% elif result.score >= 70 %}
+                👍 Good
+
+            {% elif result.score >= 60 %}
+                🙂 Average
+
+            {% else %}
+                📚 Needs Improvement
+
+            {% endif %}
+
+        {% else %}
+
+            Waiting...
+
+        {% endif %}
+
+    </h1>
+
+</div>  
+
+</div>
+
+
+    
+
+
+<div class="report-section">
+
+    <div class="report-box">
+
+        <h2>🤖 AI Suggestion</h2>
+        <p style="font-size:17px; line-height:30px;">
+
+{% if result %}
+{{ result.suggestion }}
+{% else %}
+Waiting for prediction...
+{% endif %}
+
+</p>
+    </div>
+        
+        <div class="report-box">
+
+    <h2>📚 AI Study Planner</h2>
+
+    <ul>
+
+    {% if result %}
+
+        {% if result.score >= 90 %}
+
+            <li>✅ Continue current study routine</li>
+            <li>📖 Practice one mock test weekly</li>
+            <li>😴 Sleep at least 7–8 hours</li>
+
+        {% elif result.score >= 70 %}
+
+            <li>📘 Study 2 hours daily</li>
+            <li>📝 Revise weak subjects</li>
+            <li>🎯 Solve previous year papers</li>
+
+        {% else %}
+
+            <li>📚 Study 4 hours daily</li>
+            <li>📖 Focus on basics</li>
+            <li>📝 Take mock tests regularly</li>
+
+        {% endif %}
+
+    {% endif %}
+
+    </ul>
+
+
+
+</div>
+
+</div>
+
+<div class="report-box">
+
+    <h2>📈 Performance Analysis</h2>
+
+    <div class="progress-item">
+        <label>Study Hours</label>
+        <progress value="{{ result.hours if result else 0 }}" max="10"></progress>
+    </div>
+
+    <div class="progress-item">
+        <label>Attendance</label>
+        <progress value="{{ result.attendance if result else 0 }}" max="100"></progress>
+    </div>
+
+    <div class="progress-item">
+        <label>Previous Score</label>
+        <progress value="{{ result.previous if result else 0 }}" max="100"></progress>
+    </div>
+
+    <div class="progress-item">
+        <label>Predicted Score</label>
+        <progress value="{{ result.score if result else 0 }}" max="100"></progress>
+    </div>
+
+</div>
+<a href="/" class="back-btn">
+    ⬅ Back to Predictor
+</a>
+
+<footer class="report-footer">
+
+    ✨ AI Student Predictor © 2026 <br>
+
+    Developed using Python • Flask • Machine Learning
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('performanceChart');
+
+if(ctx){
+
+new Chart(ctx,{
+
+type:'bar',
+
+data:{
+
+labels:['Hours','Attendance','Previous','Predicted'],
+
+datasets:[{
+
+label:'Student Performance',
+
+data:[
+
+{{ result.hours if result else 0 }},
+
+{{ result.attendance if result else 0 }},
+
+{{ result.previous if result else 0 }},
+
+{{ result.score if result else 0 }}
+
+],
+
+backgroundColor:[
+'#8b5cf6',
+'#3b82f6',
+'#06b6d4',
+'#10b981'
+]
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+legend:{
+display:false
+}
+}
+
+}
+
+});
+
+}
+</script>
+
+
+
+</body>
+
+
+</html>

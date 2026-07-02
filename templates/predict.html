@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Student Predictor</title>
+
+    <link rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/favicon.png') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/common.css') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/predict.css') }}">
+
+</head>
+
+<body>
+
+   
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="/home" class="logo">
+
+            <div class="logo-box">
+
+                🎓
+
+            </div>
+
+            <div class="logo-text">
+
+                <h2>AI Student</h2>
+
+                <span>Score Predictor</span>
+
+            </div>
+
+        </a>
+
+        <ul class="nav-links">
+
+            <li><a href="/home">Home</a></li>
+
+            <li><a href="/predict-page"
+            class="active">
+
+            Predict
+
+            </a></li>
+
+            <li><a href="/history">
+
+            History
+
+            </a></li>
+
+            <li><a href="/insights">
+
+            AI Insights
+
+            </a></li>
+
+            <li><a href="/report">
+
+            Report
+
+            </a></li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="predict-hero">
+
+    <div class="container hero">
+
+        <div class="hero-left">
+
+            <div class="hero-badge">
+                🤖 AI Powered Prediction System
+            </div>
+
+            <h1>
+                Predict Your <span>Exam Score</span>
+            </h1>
+
+            <p>
+                Experience intelligent academic prediction powered by Machine Learning.
+                Enter your study details and receive an instant performance analysis
+                with personalized recommendations.
+            </p>
+
+        </div>
+
+        <div class="hero-right">
+
+            <div class="hero-stats">
+
+                <div class="hero-stat">
+                    <h3>96%</h3>
+                    <span>Accuracy</span>
+                </div>
+
+                <div class="hero-stat">
+                    <h3>AI</h3>
+                    <span>Prediction</span>
+                </div>
+
+                <div class="hero-stat">
+                    <h3>24×7</h3>
+                    <span>Available</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= FORM START ================= -->
+
+<section class="predict-section">
+
+    <div class="container">
+
+        <div class="predict-grid">
+
+                        <!-- ================= LEFT : FORM ================= -->
+
+            <div class="predict-card">
+
+                <div class="card-header">
+
+                    <h2>🎓 Student Details</h2>
+
+                    <p>
+                        Enter your academic information to generate an AI prediction.
+                    </p>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>📚 Hours Studied</label>
+
+                    <input
+type="number"
+id="hours"
+min="0"
+max="24"
+placeholder="Enter study hours">
+                </div>
+
+                <div class="input-group">
+
+                    <label>✅ Attendance (%)</label>
+
+                    <input
+type="number"
+id="attendance"
+min="0"
+max="100"
+placeholder="Enter attendance percentage">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>📝 Previous Score</label>
+
+                    <input
+type="number"
+id="previous"
+min="0"
+max="100"
+placeholder="Enter previous score">
+
+                </div>
+
+                <button
+                    class="predict-btn"
+                    onclick="predictScore()">
+
+                    🚀 Predict My Score
+
+                </button>
+
+            </div>
+
+            <!-- ================= RIGHT : RESULT PREVIEW ================= -->
+
+            <!-- ================= RIGHT : AI ENGINE ================= -->
+
+<div class="engine-card">
+
+    <div class="engine-image">
+
+        <img src="{{ url_for('static', filename='images/student.png') }}" alt="AI Student">
+
+    </div>
+
+    <h2>🤖 AI Prediction Engine</h2>
+
+    <p>
+
+        Our Machine Learning model analyzes study hours,
+        attendance and previous academic performance to
+        generate an accurate prediction instantly.
+
+    </p>
+
+    <div class="engine-features">
+
+        <div class="feature-box">
+            <span>🟢</span>
+            <h4>AI Powered</h4>
+        </div>
+
+        <div class="feature-box">
+            <span>📊</span>
+            <h4>Smart Analytics</h4>
+        </div>
+
+        <div class="feature-box">
+            <span>⚡</span>
+            <h4>Instant Result</h4>
+        </div>
+
+        <div class="feature-box">
+            <span>💾</span>
+            <h4>Database Save</h4>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="workflow-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>⚡ How AI Prediction Works</h2>
+
+            <p>
+
+                Our Machine Learning model predicts your examination
+                score in four simple intelligent steps.
+
+            </p>
+
+        </div>
+
+        <div class="workflow-grid">
+
+            <div class="workflow-card">
+
+                <div class="step">1</div>
+
+                <h3>Enter Details</h3>
+
+                <p>
+
+                    Fill your study hours,
+                    attendance and previous score.
+
+                </p>
+
+            </div>
+
+            <div class="workflow-card">
+
+                <div class="step">2</div>
+
+                <h3>AI Analysis</h3>
+
+                <p>
+
+                    Machine Learning analyzes
+                    your academic performance.
+
+                </p>
+
+            </div>
+
+            <div class="workflow-card">
+
+                <div class="step">3</div>
+
+                <h3>Prediction</h3>
+
+                <p>
+
+                    AI predicts your expected
+                    examination score instantly.
+
+                </p>
+
+            </div>
+
+            <div class="workflow-card">
+
+                <div class="step">4</div>
+
+                <h3>View Report</h3>
+
+                <p>
+
+                    Open your professional
+                    AI generated report.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <h3>
+
+            🤖 AI Student Score Predictor
+
+        </h3>
+
+        <p>
+
+            Smart Academic Prediction using Artificial Intelligence.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!--================ CUSTOM ALERT ================-->
+
+<div id="customAlert" class="custom-alert">
+
+    <div class="alert-box">
+
+        <span id="alertIcon">✅</span>
+
+        <h3 id="alertTitle">Success</h3>
+
+        <p id="alertMessage">Operation Completed</p>
+
+        <button onclick="closeAlert()">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

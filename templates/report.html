@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Student Report</title>
+
+    <link rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/favicon.png') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/common.css') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/report.css') }}">
+
+</head>
+
+<body>
+
+   
+  
+<main class="report-page">
+
+<div class="container">
+
+     <nav class="navbar">
+
+        <div class="container nav-content">
+
+            <a href="/home" class="logo">
+
+                <div class="logo-box">
+                    🎓
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>AI Student</h2>
+
+                    <span>Score Predictor</span>
+
+                </div>
+
+            </a>
+
+            <ul class="nav-links">
+
+                <li><a href="/home">Home</a></li>
+
+                <li><a href="/predict-page">Predict</a></li>
+
+                <li><a href="/history">History</a></li>
+
+                <li><a href="/insights">AI Insights</a></li>
+
+                <li><a href="/report" class="active">Report</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-chip">
+
+            ✨ AI Generated Report
+
+        </span>
+
+        <h1>
+
+            Student
+
+            <span>Performance</span>
+
+            Report
+
+        </h1>
+
+        <p>
+
+            Complete AI generated academic analysis
+            based on your prediction result.
+
+        </p>
+
+    </div>
+
+    <div class="hero-date">
+
+        <div class="date-card">
+
+            <h5>
+
+                📅 Generated On
+
+            </h5>
+
+            <h2 id="reportDate">
+
+            </h2>
+
+            <p id="reportTime">
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+
+<section class="summary-grid">
+
+    <div class="summary-card">
+
+        <div class="icon">
+
+            📚
+
+        </div>
+
+        <h4>
+
+            Hours Studied
+
+        </h4>
+
+        <h2>
+
+            {{ result.hours }}
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="icon">
+
+            👥
+
+        </div>
+
+        <h4>
+
+            Attendance
+
+        </h4>
+
+        <h2>
+
+            {{ result.attendance }}%
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="icon">
+
+            📝
+
+        </div>
+
+        <h4>
+
+            Previous Score
+
+        </h4>
+
+        <h2>
+
+            {{ result.previous }}
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="icon">
+
+            🎯
+
+        </div>
+
+        <h4>
+
+            Predicted
+
+        </h4>
+
+        <h2>
+
+            {{ result.score }}%
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="icon">
+
+            🏆
+
+        </div>
+
+        <h4>
+
+            Grade
+
+        </h4>
+
+        <h2>
+
+            {{ result.grade }}
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="icon">
+
+            🤖
+
+        </div>
+
+        <h4>
+
+            Confidence
+
+        </h4>
+
+        <h2>
+
+            {{ result.confidence }}
+
+        </h2>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+
+<section class="analytics-grid">
+
+    <!-- LEFT -->
+
+    <div class="analytics-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>📈 Performance Analytics</h2>
+
+                <p>
+
+                    AI generated visualization of predicted student performance.
+
+                </p>
+
+            </div>
+
+            <span class="live-chip">
+
+                ● Live
+
+            </span>
+
+        </div>
+
+        <div class="chart-box">
+
+            <canvas
+    id="reportChart"
+    data-score="{{ result.score }}">
+</canvas>
+
+        </div>
+
+        <div class="chart-info">
+
+            <div class="chart-item">
+
+                <span class="dot purple"></span>
+
+                <h4>Predicted Score</h4>
+
+                <strong>{{ result.score }}%</strong>
+
+            </div>
+
+            <div class="chart-item">
+
+                <span class="dot blue"></span>
+
+                <h4>Remaining</h4>
+
+                <strong>{{ "%.2f"|format(100-result.score) }}%</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="grade-card">
+
+        <div class="grade-circle">
+
+            <div class="grade-inner">
+
+                <h1>
+
+                    {{ result.grade }}
+
+                </h1>
+
+            </div>
+
+        </div>
+
+        <h2>
+
+            {{ result.score }}%
+
+        </h2>
+
+        <p>
+
+            Overall Predicted Performance
+
+        </p>
+
+        <div class="confidence-box">
+
+            <span>
+
+                🤖 Confidence
+
+            </span>
+
+            <strong>
+
+                {{ result.confidence }}
+
+            </strong>
+
+        </div>
+
+        <div class="performance-status">
+
+            🏆 Excellent Performance
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="section-divider">
+    <span></span>
+</div>
+
+<!-- ========================================= -->
+
+<!-- ========================================= -->
+
+<section class="ai-section">
+
+    <div class="section-heading">
+
+        <span>🤖 AI PERFORMANCE ANALYSIS</span>
+
+        <h2>
+
+            Personalized Academic Insights
+
+        </h2>
+
+        <p>
+
+            Artificial Intelligence generated recommendations based on
+            attendance, previous score and study hours.
+
+        </p>
+
+    </div>
+
+    <div class="ai-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="ai-card">
+
+            <div class="ai-icon">
+
+                💪
+
+            </div>
+
+            <h3>
+
+                Strength
+
+            </h3>
+
+            <p>
+
+                Your attendance and study consistency indicate a positive
+                learning pattern.
+
+            </p>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="ai-card">
+
+            <div class="ai-icon">
+
+                📚
+
+            </div>
+
+            <h3>
+
+                Recommendation
+
+            </h3>
+
+            <p>
+
+                {{ result.suggestion }}
+
+            </p>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="ai-card">
+
+            <div class="ai-icon">
+
+                🎯
+
+            </div>
+
+            <h3>
+
+                Target Goal
+
+            </h3>
+
+            <p>
+
+                Maintain regular practice and attendance above 85% to
+                improve your overall score.
+
+            </p>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="ai-card">
+
+            <div class="ai-icon">
+
+                🚀
+
+            </div>
+
+            <h3>
+
+                Next Improvement
+
+            </h3>
+
+            <p>
+
+                Solve mock tests weekly and revise important topics
+                consistently.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+
+<!-- ========================================= -->
+
+<section class="action-section">
+
+    <div class="action-card">
+
+        <h2>
+
+            📄 Report Actions
+
+        </h2>
+
+        <p>
+
+            Print, download or return to the dashboard.
+
+        </p>
+
+        <div class="action-buttons">
+
+            <button
+                class="btn print-btn"
+                onclick="window.print()">
+
+                🖨 Print Report
+
+            </button>
+
+            <a
+                href="/download-report"
+                class="btn download-btn">
+
+                ⬇ Download PDF
+
+            </a>
+
+            <a
+                href="/home"
+                class="btn home-btn">
+
+                🏠 Back Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+
+<footer class="report-footer">
+
+    <div class="footer-logo">
+
+        🤖 AI Student Score Predictor
+
+    </div>
+
+    <p>
+
+        AI Powered Academic Performance Prediction System
+
+    </p>
+
+    <div class="footer-line"></div>
+
+    <span>
+
+        © 2026 AI Student Score Predictor • All Rights Reserved
+
+    </span>
+
+</footer>
+
+</div>
+
+</main>
+
+<!--================ CUSTOM ALERT ================-->
+
+<div id="customAlert" class="custom-alert">
+
+    <div class="alert-box">
+
+        <span id="alertIcon">✅</span>
+
+        <h3 id="alertTitle">Success</h3>
+
+        <p id="alertMessage">Operation Completed</p>
+
+        <button onclick="closeAlert()">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='report.js') }}"></script>
+    
+</body>
+
+</html>

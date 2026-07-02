@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Student Predictor</title>
+
+    <link rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/favicon.png') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/common.css') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/history.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="/home" class="logo">
+
+            <div class="logo-box">
+
+                🎓
+
+            </div>
+
+            <div class="logo-text">
+
+                <h2>AI Student</h2>
+
+                <span>Score Predictor</span>
+
+            </div>
+
+        </a>
+
+        <ul class="nav-links">
+
+            <li><a href="/home">Home</a></li>
+
+            <li><a href="/predict-page">
+
+            Predict
+
+            </a></li>
+
+            <li><a href="/history" class="active">
+
+            History
+
+            </a></li>
+
+            <li><a href="/insights">
+
+            AI Insights
+
+            </a></li>
+
+            <li><a href="/report">
+
+            Report
+
+            </a></li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!--================ HISTORY HERO ================-->
+
+<section class="history-hero">
+
+    <div class="container">
+
+        <div class="hero-badge">
+            📜 AI Prediction Records
+        </div>
+
+        <h1>
+
+            Prediction <span>History</span>
+
+        </h1>
+
+        <p>
+
+            View all your previous AI generated predictions,
+            track your academic progress and monitor your
+            overall performance over time.
+
+        </p>
+
+        <div class="hero-stats">
+
+            <div class="hero-stat">
+
+                <h3 id="totalPredictions">
+                    {{ history|length }}
+                </h3>
+
+                <span>Total Predictions</span>
+
+            </div>
+
+            <div class="hero-stat">
+
+                <h3>AI</h3>
+
+                <span>Powered</span>
+
+            </div>
+
+            <div class="hero-stat">
+
+                <h3>100%</h3>
+
+                <span>History Saved</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--================ HISTORY TABLE ================-->
+
+<section class="history-section">
+
+    <div class="container">
+
+        <!-- Action Bar -->
+
+        <div class="history-top">
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchHistory"
+                    placeholder="🔍 Search prediction...">
+
+            </div>
+
+            <button
+                class="clear-btn"
+                onclick="clearHistory()">
+
+                🗑 Clear History
+
+            </button>
+
+        </div>
+
+        <!-- Table Card -->
+
+        <div class="history-card">
+
+            {% if history %}
+
+            <table class="history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Hours</th>
+
+                        <th>Attendance</th>
+
+                        <th>Previous</th>
+
+                        <th>Score</th>
+
+                        <th>Grade</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="historyBody">
+
+                    {% for row in history %}
+
+                    <tr>
+
+                        <td>{{ row.hours }}</td>
+
+                        <td>{{ row.attendance }}%</td>
+
+                        <td>{{ row.previous }}</td>
+
+                        <td>{{ row.score }}%</td>
+
+                        <td>
+
+                            <span class="grade {{ row.grade|lower|replace('+','plus') }}">
+
+                                {{ row.grade }}
+
+                            </span>
+
+                        </td>
+
+                        <td>{{ row.created_at }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <div class="empty-history">
+
+                <div class="empty-icon">
+
+                    📂
+
+                </div>
+
+                <h2>No Prediction History</h2>
+
+                <p>
+
+                    You haven't made any predictions yet.
+
+                </p>
+
+                <a
+                    href="/predict-page"
+                    class="predict-link">
+
+                    🚀 Predict Now
+
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--================ CUSTOM ALERT ================-->
+
+<div id="customAlert" class="custom-alert">
+
+    <div class="alert-box">
+
+        <span id="alertIcon">✅</span>
+
+        <h3 id="alertTitle">Success</h3>
+
+        <p id="alertMessage">Operation Completed</p>
+
+        <button onclick="closeAlert()">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='history.js') }}"></script>
+
+</body>
+
+</html>
